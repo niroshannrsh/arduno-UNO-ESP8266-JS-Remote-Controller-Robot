@@ -1,0 +1,115 @@
+<html>
+	<head>
+		<title>ESP8266 LED Control</title>
+		 <link rel="stylesheet" href="button.css">
+		<link rel="stylesheet" href="button2.css">
+	</head>
+	<body>
+
+	<span class="switch">
+	<span class="switch-border1">
+		<span class="switch-border2">
+			<input id="switch1" type="checkbox" checked />
+			<label for="switch1"></label>
+			<span class="switch-top"></span>
+			<span class="switch-shadow"></span>
+			<span class="switch-handle"></span>
+			<span class="switch-handle-left"></span>
+			<span class="switch-handle-right"></span>
+			<span class="switch-handle-top"></span>
+			<span class="switch-handle-bottom"></span>
+			<span class="switch-handle-base"></span>
+			<span class="switch-led switch-led-green">
+				<span class="switch-led-border">
+					<span class="switch-led-light">
+						<span class="switch-led-glow"></span>
+					</span>
+				</span>
+			</span>
+			<span class="switch-led switch-led-red">
+				<span class="switch-led-border">
+					<span class="switch-led-light">
+						<span class="switch-led-glow"></span>
+					</span>
+				</span>
+			</span>
+		</span>
+	</span>
+</span>
+
+<span class="switch">
+	<span class="switch-border1">
+		<span class="switch-border2">
+			<input id="switch2" type="checkbox" />
+			<label for="switch2"></label>
+			<span class="switch-top"></span>
+			<span class="switch-shadow"></span>
+			<span class="switch-handle"></span>
+			<span class="switch-handle-left"></span>
+			<span class="switch-handle-right"></span>
+			<span class="switch-handle-top"></span>
+			<span class="switch-handle-bottom"></span>
+			<span class="switch-handle-base"></span>
+			<span class="switch-led switch-led-green">
+				<span class="switch-led-border">
+					<span class="switch-led-light">
+						<span class="switch-led-glow"></span>
+					</span>
+				</span>
+			</span>
+			<span class="switch-led switch-led-red">
+				<span class="switch-led-border">
+					<span class="switch-led-light">
+						<span class="switch-led-glow"></span>
+					</span>
+				</span>
+			</span>
+		</span>
+	</span>
+</span>
+
+
+
+	
+	<!-- in the <button> tags below the ID attribute is the value sent to the arduino -->
+	<div class="pane">
+	<h1>Direction Controller</h1>
+	<span class="button" id="l"><p>L</p></span>
+	<span class="button" id="r"><p>R</p></span>
+	<span class="button" id="f"><p>F</p></span>
+	<span class="button" id="b"><p>B</p></span>
+
+	<span class="button" id="s" ><p class="k">S</p></span>
+
+	
+</div>
+
+<!-- Social buttons -->
+<div class="pane social">
+	<h1>Speed Controller</h1>
+	<span class="button"><p class="t">1</p></span>
+	<span class="button"><p class="s">2</p></span>
+	<span class="button"><p class="y">3</p></span>
+	<span class="button"><p class="f">4</p></span>
+	<span class="button"><p class="g">5</p></span>
+	<span class="button"><p class="k">6</p></span>
+	
+	
+
+</div>
+
+	
+		
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".button").click(function(){
+				var p = $(this).attr('id'); // get id value (i.e. pin13, pin12, or pin11)
+				// send HTTP GET request to the IP address with the parameter "pin" and value "p", then execute the function
+				$.get("http://192.168.8.101:1336", p); // execute get request
+			});
+		});
+	</script>
+	</body>
+</html>
+ 
